@@ -21,6 +21,7 @@ func _on_physics_process(_delta : float) -> void:
 	else:
 		animated_srpite_2d.play("idle_front")			
 	
+	pass
 
 
 func _on_next_transitions() -> void:

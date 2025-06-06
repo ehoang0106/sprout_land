@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bfsqejcm4dik3" path="res://assets/game/tilesets/grass.png" id="2_tkbyn"]
 [ext_resource type="Texture2D" uid="uid://c88p1dud8pya1" path="res://assets/game/tilesets/tilled_dirt_wide.png" id="3_7cqdy"]
 [ext_resource type="Texture2D" uid="uid://c2bdihcgn2dcq" path="res://assets/game/objects/basic_grass_biom_things.png" id="4_pudl8"]
-[ext_resource type="PackedScene" uid="uid://bpb1g225by0xb" path="res://scenes/test/LargeHouse.tscn" id="5_pudl8"]
+[ext_resource type="PackedScene" uid="uid://bpb1g225by0xb" path="res://scenes/houses/LargeHouse.tscn" id="5_pudl8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tkbyn"]
 texture = ExtResource("1_tjtrf")

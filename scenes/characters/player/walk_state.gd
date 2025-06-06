@@ -21,7 +21,7 @@ func _on_physics_process(_delta : float) -> void:
 		animated_sprite_2d.play("walk_front")
 	
 	if direction != Vector2.ZERO:
-		player.play_direction = direction
+		player.player_direction = direction
 	
 	player.velocity = direction * speed
 	player.move_and_slide()

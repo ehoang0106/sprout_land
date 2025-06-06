@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://1baildtkhh8d"]
+[gd_scene load_steps=51 format=3 uid="uid://1baildtkhh8d"]
 
 [ext_resource type="Script" uid="uid://by77i0ohxgbqc" path="res://scenes/characters/player/player.gd" id="1_6avc5"]
 [ext_resource type="Texture2D" uid="uid://dfvgot71eabdl" path="res://assets/game/characters/basic_charakter_actions.png" id="1_t61fv"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bqwvs8bvx3xce" path="res://scenes/characters/player/idle_state.gd" id="4_qd3e3"]
 [ext_resource type="Script" uid="uid://4mfx6drwngkm" path="res://scenes/characters/player/walk_state.gd" id="5_qd3e3"]
 [ext_resource type="Script" uid="uid://dydd344jbjkj3" path="res://scenes/characters/player/chopping_state.gd" id="7_mk55u"]
+[ext_resource type="Script" uid="uid://brj6x4gl2judl" path="res://scenes/characters/player/tilling_state.gd" id="8_xuses"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hss88"]
 atlas = ExtResource("1_t61fv")
@@ -177,7 +178,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qd3e3")
 }],
-"loop": true,
+"loop": false,
 "name": &"chopping_back",
 "speed": 3.0
 }, {
@@ -188,7 +189,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mk55u")
 }],
-"loop": true,
+"loop": false,
 "name": &"chopping_front",
 "speed": 3.0
 }, {
@@ -199,7 +200,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_42irl")
 }],
-"loop": true,
+"loop": false,
 "name": &"chopping_left",
 "speed": 3.0
 }, {
@@ -210,7 +211,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_djydg")
 }],
-"loop": true,
+"loop": false,
 "name": &"chopping_right",
 "speed": 3.0
 }, {
@@ -265,7 +266,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tebod")
 }],
-"loop": true,
+"loop": false,
 "name": &"tilling_back",
 "speed": 3.0
 }, {
@@ -276,7 +277,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3hnlq")
 }],
-"loop": true,
+"loop": false,
 "name": &"tilling_front",
 "speed": 3.0
 }, {
@@ -287,7 +288,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_u6wme")
 }],
-"loop": true,
+"loop": false,
 "name": &"tilling_left",
 "speed": 3.0
 }, {
@@ -298,7 +299,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2v4cy")
 }],
-"loop": true,
+"loop": false,
 "name": &"tilling_right",
 "speed": 3.0
 }, {
@@ -396,13 +397,13 @@ radius = 8.06226
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_6avc5")
+current_tool = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_omk8d")
-animation = &"idle_front"
+animation = &"tilling_right"
 autoplay = "idle_front"
-frame_progress = 0.270613
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -9)
@@ -422,7 +423,12 @@ script = ExtResource("5_qd3e3")
 player = NodePath("../..")
 animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 
-[node name="Chopping" type="Node2D" parent="StateMachine"]
+[node name="Chopping" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("player", "animated_sprite_2d")]
 script = ExtResource("7_mk55u")
+player = NodePath("../..")
+animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Tilling" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("player", "animated_sprite_2d")]
+script = ExtResource("8_xuses")
+player = NodePath("../..")
+animated_sprite_2d = NodePath("../../AnimatedSprite2D")

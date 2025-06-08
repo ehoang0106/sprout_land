@@ -10,7 +10,7 @@ func _ready() -> void:
 func on_interactable_activated() -> void:
 	animated_sprite_2d.play("open_door")
 	print("activated")
-	
+	Node
 func on_interactable_deactivated() -> void:
 	animated_sprite_2d.play("close_door")
 	print("deactivated")

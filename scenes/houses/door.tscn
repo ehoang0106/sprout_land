@@ -89,13 +89,14 @@ animations = [{
 size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_act2a"]
-size = Vector2(12, 44)
+size = Vector2(12, 24)
 
 [node name="Door" type="StaticBody2D"]
 script = ExtResource("1_2dpp7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_557ok")
+animation = &"close_door"
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

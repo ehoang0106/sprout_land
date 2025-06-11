@@ -16,5 +16,5 @@ func on_interactable_activated() -> void:
 	
 func on_interactable_deactivated() -> void:
 	animated_sprite_2d.play("close_door")
-	collision_layer = 1
+	collision_layer = 1	
 	print("deactivated")
